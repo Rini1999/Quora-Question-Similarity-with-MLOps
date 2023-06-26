@@ -18,3 +18,21 @@ Identify which questions asked on Quora are duplicates of questions that have al
 ## Type of Machine Learning Problem
 It is a binary classification problem, for a given pair of questions we need to predict if they are duplicate or not.
 
+## Solution
+This project aims to develop a model that can accurately classify whether a pair of questions on quora are duplicates or not. By doing so, we can enhance the user experience by reducing search time, minimising duplicate questions and providing more value to quora's user base.
+
+### Step 1 : Load the dataset
+In the first step, we imported the required libraries and modules that are necessary for our project.
+Next, we loaded the dataset that contains the relevant information for our tasks.
+
+### Step 2 : Data Cleaning and Exploratory Data Analysis 
+
+Handling missing values : There are totally 3 missing values in the dataset. We have  huge dataset, so we can afford to drop the missing rows.
+
+Data Imbalance check : 63% rows belongs to class-0 which is non-duplicate, whereas 37% belongs to class-1 which is duplicate. Hence, there is no strict imbalance in the dataset.
+
+Text Preprocessing : Lowering text, Removing punctuations, Spelling corrections, Contractions, Removing extra spaces. 
+
+### Step 3 : Feature engineering and extraction
+
+We extracted basic features, length based features, token based features and fuzzy features.
