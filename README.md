@@ -21,11 +21,22 @@ It is a binary classification problem, for a given pair of questions we need to 
 ## Solution
 This project aims to develop a model that can accurately classify whether a pair of questions on quora are duplicates or not. By doing so, we can enhance the user experience by reducing search time, minimising duplicate questions and providing more value to quora's user base.
 
+### Dataset description
+
+| Column | Description |
+| :---: | :---: |
+| id | Unique id for each row |
+| qid1 | Question 1 id |
+| qid2 | Question 2 id |
+| question1 | Question 1 |
+| question2 | Question 2 |
+| is_duplicate | Question pair is duplicate or not |
+
 ### Step 1 : Load the dataset
 In the first step, we imported the required libraries and modules that are necessary for our project.
 Next, we loaded the dataset that contains the relevant information for our tasks.
 
-### Step 2 : Data Cleaning and Exploratory Data Analysis 
+### Step 2 : Data Cleaning
 
 Handling missing values : There are totally 3 missing values in the dataset. We have  huge dataset, so we can afford to drop the missing rows.
 
@@ -33,6 +44,16 @@ Data Imbalance check : 63% rows belongs to class-0 which is non-duplicate, where
 
 Text Preprocessing : Lowering text, Removing punctuations, Spelling corrections, Contractions, Removing extra spaces. 
 
-### Step 3 : Feature engineering and extraction
+### Step 3 : Feature engineering
 
 We extracted basic features, length based features, token based features and fuzzy features.
+
+| Basic Features | Length Based Features | Token Based Features | Fuzzy Features |
+| :---: | :---: | :---: | :---: |
+| Each question length | Mean length of two questions | First word equal or not | Fuzzy ratio |
+| No: of words in each question | Absolute length difference of two questions | Last word equal or not | Fuzzy partial ratio | 
+| Total no: of words in each question pair | Longest substring ratio | Ratio of common token count to maximum token count among each question pair | Fuzzy token sort ratio |
+| Common words in each question pair | | Ratio of common token count to minimum token count among each question pair | Fuzzy token set ratio |
+| Word share | | Ratio of common stopword count to maximum stopword count among each question pair | |
+| | | Ratio of common stopword count to minimum stopword count among each question pair | |
+| | | Ratio of common words to length of the smaller question among each question pair | |
