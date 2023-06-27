@@ -42,9 +42,9 @@ Handling missing values : There are totally 3 missing values in the dataset. We 
 
 Data Imbalance check : 63% rows belongs to class-0 which is non-duplicate, whereas 37% belongs to class-1 which is duplicate. Hence, there is no strict imbalance in the dataset.
 
-Text Preprocessing : Lowering text, Removing punctuations, Spelling corrections, Contractions, Removing extra spaces. 
+### Step 3 : Basic Text Preprocessing : Lowering text, Removing punctuations, Spelling corrections, Contractions, Removing extra spaces. 
 
-### Step 3 : Feature engineering
+### Step 4 : Feature engineering
 
 We extracted basic features, length based features, token based features and fuzzy features.
 
@@ -57,3 +57,50 @@ We extracted basic features, length based features, token based features and fuz
 | Word share | | Ratio of common stopword count to maximum stopword count among each question pair | |
 | | | Ratio of common stopword count to minimum stopword count among each question pair | |
 | | | Ratio of common words to length of the smaller question among each question pair | |
+
+### Step 5 : Exploratory Data Analysis
+
+- Similar and Non-Similar question count analysis
+- Target class imbalance analysis
+- Extracted features impact analysis
+
+#### Key findings in EDA:
+
+- 8% questions are similar, 92% are not similar.
+- 63% rows belong to class-0 and 37% rows belong to class-1.
+- Basic features have less impact on target class.
+- Token based and length based features have significantly less impact on target class.
+- Fuzzy features have significantly high impact on target class.
+
+### Step 6 : Advanced text preprocessing
+
+#### Approaches used : 
+
+- Basic approach with no text preprocessing and using BOW.
+- Basic approach with text preprocessing and using BOW, TFIDF.
+- Advance approach with text preprocessing, feature extraction and using BOW, TFIDF.
+- Advance approach using own-embedding.
+- Advance approach using Pre-trained model, Word2Vec, GloVe and BERT.
+
+### Step 7 : Model building and experiment tracking
+
+- Here, we tracked every experiment while training the model to save time.
+
+### Step 8 : Model evaluation
+
+#### Metrics used : 
+
+- Classification report, Confusion matrix
+
+#### Results : 
+
+Accuracy increased from less than 80% using basic approach to greater than 80% using advance approach using BERT. Using BERT as a text to numeric vector conversion technique and XGBoost as a machine learning classification model, obtained highest accuracy as 85.3%.
+
+### Step 9 : Model deployment 
+
+## Challenges faced
+
+- Main challenge we faced is the type of data. Working with textual data is bit difficult.
+- Class imbalance in the dataset.
+- Selection of best vectorization technique.
+- Handling vector in BOW and TFID since vectors created by these two vectorization techniques are dense with high dimensions.
